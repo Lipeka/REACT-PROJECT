@@ -1,0 +1,15 @@
+body
+{
+  background-color: lightseagreen;
+  color: black;
+  padding: 10px;
+  background-image: url("https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg");
+}
+Footer{
+    text-align: center;
+    padding-right: 200px;
+}
+.CardGrid{
+  background-color: white;
+  color: black;
+}
