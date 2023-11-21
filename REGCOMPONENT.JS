@@ -8,20 +8,20 @@ const RegistrationComponent = ({ onRegister, onCancel }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+//introducing and initializing the necessary components of the page 
   const handleRegister = () => {
     if (name && email && password && confirmPassword === password) {
       
-      onRegister({ name, email, password });
+      onRegister({ name, email, password });//if all details are equal
     } else {
      
-      console.error('Invalid registration data');
+      console.error('Invalid registration data');//throws error
     }
   };
 
   const handleCancel = () => {
     if (onCancel) {
-      onCancel();
+      onCancel();//cancel
     }
   };
   const backgroundImageStyle = {
@@ -33,7 +33,7 @@ const RegistrationComponent = ({ onRegister, onCancel }) => {
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     backgroundcolor:'black'
   };
-
+//logo styling
 
   return (
     <div style={backgroundImageStyle}>
@@ -87,6 +87,7 @@ const RegistrationComponent = ({ onRegister, onCancel }) => {
       </Button>
     </div>
     </div>
+//we created textboxes for input and buttons for operations we have styled them and added a logo in this function
   );
 };
 
