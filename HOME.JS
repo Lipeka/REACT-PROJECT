@@ -50,7 +50,7 @@ const cardData = [
     description: 'The perfect delights for the sweet and salt days now available in Uber Eats! Pick your restaurant to order now.',
     imageUrl: 'https://bitemeup.com/wp-content/uploads/2019/03/bg_1024x1024.jpg',
   },   
-];
+];//array of contents has been declared  
 function MultiActionAreaCard({ title, description, imageUrl }) {
   return (
     <Card sx={{ maxWidth: 355 }}>
@@ -82,7 +82,9 @@ function MultiActionAreaCard({ title, description, imageUrl }) {
         </Button>
       </CardActions>
     </Card>
-  );
+  );//we have styled an individual card and content details
+//we have declared the style or the syntax of a single card and we have added 2 buttons in each card
+}
 }
 
 function CardGrid() {
@@ -100,5 +102,6 @@ function CardGrid() {
     </Grid>
   );
 }
+//each and every card has been added to the page and now represented as a grid and we have have mentioned the spacing and table of contents etc
 
 export default CardGrid;
