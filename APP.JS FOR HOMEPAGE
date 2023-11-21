@@ -1,0 +1,15 @@
+import React from "react";
+import ResponsiveAppBar from "./components/homepage";
+import MultiActionAreaCard from "./home";
+import Footer from "./components/footer";
+import './App.css';
+function App() {
+  return (
+    <div className="App">
+   <ResponsiveAppBar />
+   <MultiActionAreaCard/>
+   <Footer/>
+    </div>
+  );
+}
+export default App;
