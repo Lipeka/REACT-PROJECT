@@ -5,20 +5,21 @@ import './LoginComponent.css';
 
 const LoginComponent = ({ onLogin, onCancel }) => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');//components such as email,password,login,cancel introduced
 
   const handleLogin = () => {
     if (email && password) {
       onLogin({ email, password });
     } else {
-      console.error('Invalid login credentials');
+      console.error('Invalid login credentials');//handles the login input checks condition and shows error if any
     }
   };
 
   const handleCancel = () => {
     if (onCancel) {
       onCancel();
-    }
+    }//to use cancel button
+    
   };
   const backgroundImageStyle = {
     maxWidth: '400px',
@@ -28,7 +29,7 @@ const LoginComponent = ({ onLogin, onCancel }) => {
     borderRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     backgroundcolor:'black'
-  };
+  };//styling logo
 
   return (
     <div style={backgroundImageStyle}>
@@ -64,4 +65,5 @@ const LoginComponent = ({ onLogin, onCancel }) => {
     </div>
   );
 };
+//we created textboxes for input and buttons for operations we have styled them and added a logo in this function
 export default LoginComponent;
