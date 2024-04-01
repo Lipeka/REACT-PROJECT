@@ -1,29 +1,22 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+//homepage.js
+import React, { useState } from 'react';
+import { AppBar, Box, Container, IconButton, Toolbar, Menu, MenuItem, Typography, Select, Button, Tooltip, Avatar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import "./homepage.css";
+import { useCart } from './CartContext';
 
-const pages = ['Restaurants', 'Order History', 'Cart'];
-const settings = ['Profile', 'Account', 'Contact Support', 'Logout'];
+const pages = ['Order History', 'Explore'];
+const settings = ['Profile', 'Account', 'Customize', 'Logout'];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const { cartItems } = useCart(); // Accessing cartItems from CartContext
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -37,7 +30,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -55,9 +48,7 @@ function ResponsiveAppBar() {
               color: 'inherit',
               textDecoration: 'none',
             }}
-          >
-            
-          </Typography>
+          ></Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -118,12 +109,19 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
+          </Box>
+
+          <Box sx={{ flexGrow: 0, ml: 2 }}>
+            <IconButton color="inherit">
+              <Typography variant="subtitle1" sx={{ color: 'white' }}>
+                CART ({cartItems.length})
+              </Typography>
+            </IconButton>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -144,6 +142,7 @@ function ResponsiveAppBar() {
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
+
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
@@ -160,5 +159,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
 
+export default ResponsiveAppBar;
